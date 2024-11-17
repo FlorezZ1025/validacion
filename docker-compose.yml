@@ -1,0 +1,12 @@
+services:
+  memos-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5230:5230"
+    environment:
+      - MEMOS_MODE=prod
+      - MEMOS_PORT=5230
+    entrypoint: ["./memos"]
+
