@@ -7,13 +7,12 @@ import 'cypress-file-upload';
 declare global {
   namespace Cypress {
     interface Chainable {
-      SignUp(username?: string, password?: string): Chainable<void>;
+      Sign(username?: string, password?: string): Chainable<void>;
     }
   }
 }
 
-Cypress.Commands.add("SignUp", (username: string = "Albertt23", password: string = "1234") => {
-    cy.visit('/auth')
+Cypress.Commands.add("Sign", (username: string = "Albertt23", password: string = "1234") => {
 
     cy.wait(500)
 
