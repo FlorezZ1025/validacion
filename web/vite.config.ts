@@ -1,7 +1,7 @@
 import react from "@vitejs/plugin-react";
 import { codeInspectorPlugin } from "code-inspector-plugin";
 import { resolve } from "path";
-import { defineConfig } from "vite";
+import { defineConfig } from "vitest/config";
 
 let devProxyServer = "http://localhost:8081";
 if (process.env.DEV_PROXY_SERVER && process.env.DEV_PROXY_SERVER.length > 0) {
@@ -17,6 +17,11 @@ export default defineConfig({
       bundler: "vite",
     }),
   ],
+  test: {
+    environment: "jsdom",
+    globals: true,
+    setupFiles: "./tests/setup.ts",
+  },
   server: {
     host: "0.0.0.0",
     port: 3001,
