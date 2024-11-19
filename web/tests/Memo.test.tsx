@@ -1,20 +1,50 @@
 /* eslint-disable prettier/prettier */
-import { describe, it, expect } from "vitest";
-import { CopyLink, DeleteMemo, ToFile } from "../src/pages/features/Memo";
+import { describe, it, expect, vi } from "vitest";
+import { CopyLink, createMemo, DeleteMemo, ToFile } from "../src/pages/features/Memo";
+
+vi.mock("@store/**");
 
 describe("Memo options", () => {
-  it("debería archivar un memo", async () => {
-    const result = await ToFile();
-    expect(result).toBe("Archived successfully");
+  it("Should file a memo", async () => {
+    const text = {
+      user: 1,
+      txtId: 1,
+    };
+
+    const value = "Archived successfully";
+
+    const result = (await ToFile(text)).mockValue(value);
+
+    expect(result).toBe(value);
   });
 
-  it("debería eliminar un memo", async () => {
-    const result = await DeleteMemo();
-    expect(result).toBe("Deleted Succesfully");
+  it("Should delete a memo", async () => {
+    const value = "Deleted Succesfully";
+
+    const result = (await DeleteMemo()).mockValue(value);
+
+    expect(result).toBe(value);
   });
 
-  it("debería copiar un enlace", async () => {
+  it("Should copy a file", async () => {
     const result = await CopyLink();
-    expect(result).toBe("Enlace copiado correctamente");
+
+    const value = "Enlace copiado correctamente";
+
+    expect(result).toBe(value);
+  });
+
+  it("Should create a memo", async () => {
+    const text = {
+      user: 1,
+      message: "Hola desde prueba unitaria",
+    };
+
+    const value = text.message;
+
+    const result = await createMemo(text);
+
+    expect(result.message).toBe(value);
+    expect(result).toHaveProperty("txtId");
   });
 });

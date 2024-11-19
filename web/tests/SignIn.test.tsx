@@ -18,7 +18,7 @@ describe("Componente SignIn", () => {
 
   it("debería lanzar un error con credenciales incorrectas", async () => {
     const username = "user";
-    const password = "bababa";
+    const password = "132415125";
 
     await expect(SignIn(username, password)).rejects.toThrow("Credenciales inválidas");
   });
