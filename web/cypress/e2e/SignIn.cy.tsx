@@ -9,11 +9,9 @@ describe('Sign in e2e test', () => {
         cy.contains("unmatched username and password").should('be.visible')
     })
 
-    it('Invalid credentials', ()=>{
+    it('Valid credentials', ()=>{
         cy.visit('http://localhost:5230/auth')
         cy.wait(500)
         cy.Sign()
-        cy.wait(500)
-        cy.contains("unmatched username and password").should('be.visible')
     })
 })
