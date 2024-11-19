@@ -11,7 +11,31 @@ import (
 	storepb "github.com/usememos/memos/proto/gen/store"
 )
 
-func TestMemoStore(t *testing.T) {
+
+func TestCreateMessage(t *testing.T) {
+	ctx := context.Background()
+	ts := NewTestingStore(ctx, t)
+	user, err := createTestingHostUser(ctx, ts)
+	require.NoError(t, err)
+	create := &store.Activity{
+		CreatorID: user.ID,
+		Type:      store.ActivityTypeMemoComment,
+		Level:     store.ActivityLevelInfo,
+		Payload:   &storepb.ActivityPayload{},
+	}
+	activity, err := ts.CreateActivity(ctx, create)
+	require.NoError(t, err)
+	require.NotNil(t, activity)
+	activities, err := ts.ListActivities(ctx, &store.FindActivity{
+		ID: &activity.ID,
+	})
+	require.NoError(t, err)
+	require.Equal(t, 1, len(activities))
+	require.Equal(t, activity, activities[0])
+	ts.Close()
+}
+
+func TestShowMessages(t *testing.T) {
 	ctx := context.Background()
 	ts := NewTestingStore(ctx, t)
 	user, err := createTestingHostUser(ctx, ts)
@@ -64,7 +88,7 @@ func TestMemoStore(t *testing.T) {
 	ts.Close()
 }
 
-func TestMemoListByTags(t *testing.T) {
+func TestOrderDescToAsc(t *testing.T) {
 	ctx := context.Background()
 	ts := NewTestingStore(ctx, t)
 	user, err := createTestingHostUser(ctx, ts)
@@ -100,7 +124,7 @@ func TestMemoListByTags(t *testing.T) {
 	ts.Close()
 }
 
-func TestDeleteMemoStore(t *testing.T) {
+func TestDeleteMessage(t *testing.T) {
 	ctx := context.Background()
 	ts := NewTestingStore(ctx, t)
 	user, err := createTestingHostUser(ctx, ts)

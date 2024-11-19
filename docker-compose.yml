@@ -9,4 +9,3 @@ services:
       - MEMOS_MODE=prod
       - MEMOS_PORT=5230
     entrypoint: ["./memos"]
-

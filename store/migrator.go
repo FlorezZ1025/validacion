@@ -122,7 +122,7 @@ func (s *Store) preMigrate(ctx context.Context) error {
 	// If any error occurs or no migration history found, apply the latest schema.
 	if err != nil || len(migrationHistoryList) == 0 {
 		if err != nil {
-			slog.Warn("failed to find migration history in pre-migrate", slog.String("error", err.Error()))
+			// slog.Warn("failed to find migration history in pre-migrate", slog.String("error", err.Error()))
 		}
 		filePath := s.getMigrationBasePath() + LatestSchemaFileName
 		bytes, err := migrationFS.ReadFile(filePath)

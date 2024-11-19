@@ -116,6 +116,7 @@ func (s *Store) CreateMemo(ctx context.Context, create *Memo) (*Memo, error) {
 	return s.driver.CreateMemo(ctx, create)
 }
 
+
 func (s *Store) ListMemos(ctx context.Context, find *FindMemo) ([]*Memo, error) {
 	return s.driver.ListMemos(ctx, find)
 }
