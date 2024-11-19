@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 /// <reference types="cypress" />
-describe('Sign Up e2e test', () => {
+describe('Sign in e2e test', () => {
     it('Missing credentials', ()=>{
         cy.visit('http://localhost:5230/auth')
         cy.wait(500)
