@@ -16,7 +16,7 @@ export async function SignIn(username: string, password: string) {
     password: string;
   }
   
-  export const registerUser = async (input: RegisterInput): Promise<string> => {
+  export const SignUp = async (input: RegisterInput): Promise<string> => {
     const { username, password } = input;
   
     if (!username || !password ) {
