@@ -6,7 +6,7 @@ import (
 	"github.com/usememos/memos/internal/util"
 )
 
-func TestUIDMatcher(t *testing.T) {
+func TestLogin(t *testing.T) {
 	tests := []struct {
 		input    string
 		expected bool

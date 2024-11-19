@@ -50,9 +50,6 @@ importers:
       copy-to-clipboard:
         specifier: ^3.3.3
         version: 3.3.3
-      cypress-file-upload:
-        specifier: ^5.0.8
-        version: 5.0.8(cypress@13.15.2)
       dayjs:
         specifier: ^1.11.13
         version: 1.11.13
@@ -201,6 +198,9 @@ importers:
       cypress:
         specifier: ^13.15.2
         version: 13.15.2
+      cypress-file-upload:
+        specifier: ^5.0.8
+        version: 5.0.8(cypress@13.15.2)
       eslint:
         specifier: ^8.57.1
         version: 8.57.1
