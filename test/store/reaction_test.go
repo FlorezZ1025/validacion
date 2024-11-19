@@ -9,7 +9,7 @@ import (
 	"github.com/usememos/memos/store"
 )
 
-func TestReactionStore(t *testing.T) {
+func TestReactionToMessage(t *testing.T) {
 	ctx := context.Background()
 	ts := NewTestingStore(ctx, t)
 

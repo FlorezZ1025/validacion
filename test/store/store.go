@@ -18,13 +18,13 @@ func NewTestingStore(ctx context.Context, t *testing.T) *store.Store {
 	profile := test.GetTestingProfile(t)
 	dbDriver, err := db.NewDBDriver(profile)
 	if err != nil {
-		slog.Error("failed to create db driver", slog.String("error", err.Error()))
+		// slog.Error("failed to create db driver", slog.String("error", err.Error()))
 	}
 	resetTestingDB(ctx, profile, dbDriver)
 
 	store := store.New(dbDriver, profile)
 	if err := store.Migrate(ctx); err != nil {
-		slog.Error("failed to migrate db", slog.String("error", err.Error()))
+		// slog.Error("failed to migrate db", slog.String("error", err.Error()))
 	}
 	return store
 }
