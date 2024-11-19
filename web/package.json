@@ -26,6 +26,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "copy-to-clipboard": "^3.3.3",
+    "cypress-file-upload": "^5.0.8",
     "dayjs": "^1.11.13",
     "fuse.js": "^7.0.0",
     "highlight.js": "^11.10.0",

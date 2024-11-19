@@ -13,11 +13,11 @@ declare global {
 }
 
 Cypress.Commands.add("SignUp", (username: string = "Albertt23", password: string = "1234") => {
-    cy.visit('/')
+    cy.visit('/auth')
 
     cy.wait(500)
 
-    cy.get('input[type="text"]').click().type(username)
+    cy.get('input').type(username)
     
     cy.get('input[type="password"]').type(password);
     
