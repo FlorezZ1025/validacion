@@ -15,6 +15,7 @@ import router from "./router";
 import store from "./store";
 import theme from "./theme";
 
+
 (async () => {
   const container = document.getElementById("root");
   const root = createRoot(container as HTMLElement);
